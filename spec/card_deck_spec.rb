@@ -1,6 +1,7 @@
 require('rspec')
 require('card_deck')
 require('playing_card')
+require('player')
 
 describe('CardDeck') do
 
@@ -20,5 +21,14 @@ describe('CardDeck') do
     end
   end
 
-  describe('#')
+  describe('#deal') do
+    ('it deals out to two players') do
+      player1 = Player.new()
+      player2 = Player.new()
+      test_deck = CardDeck.new()
+      number_of_players = [player1, player2].length()
+      test_deck.deal(number_of_players)
+      expect(test_deck.deal().length()).to(eq(2))
+    end
+  end
 end

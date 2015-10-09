@@ -28,4 +28,21 @@ class CardDeck
   def shuffle()
     @deck.shuffle!()
   end
+
+  def deal(number_of_players)
+
+    player_array = Array.new(number_of_players)
+    player_array.each {|player| player = Array.new(1)}
+
+    @deck.each() do |card|
+      player_array.each() do |player|
+        player.push(card)
+        @deck.pop(card)
+      end
+    end
+
+    player_array.each() do |player|
+      player.compact()
+    end
+  end
 end

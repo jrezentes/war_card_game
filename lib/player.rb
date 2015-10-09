@@ -1,6 +1,4 @@
 class Player
-
-    
   def initialize(deck)
      @deck = deck
   end
@@ -15,5 +13,9 @@ class Player
 
   def play_card()
     @deck.pop()
+  end
+
+  def take_cards(card)
+    @deck.push(card)
   end
 end
