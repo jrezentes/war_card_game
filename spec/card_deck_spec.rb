@@ -19,4 +19,6 @@ describe('CardDeck') do
       expect(test_deck.deck()).not_to eq(test_deck2.deck())
     end
   end
+
+  describe('#')
 end

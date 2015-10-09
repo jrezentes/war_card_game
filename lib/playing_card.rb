@@ -9,9 +9,9 @@ class PlayingCard
     'A' => 14
   }
 
-  def initialize(attributes)
-    @rank=attributes[:rank]
-    @suit=attributes[:suit]
+  def initialize(rank , suit)
+    @rank = rank
+    @suit = suit
   end
 
   def clear

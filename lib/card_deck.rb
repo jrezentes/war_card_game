@@ -7,19 +7,18 @@ class CardDeck
     suits = ['Spade', 'Heart', 'Club', 'Diamond']
     default_deck = []
 
-    @deck ||= default_deck
-
     i = 0
     while (i <= ranks.length() - 1) do
       u = 0
       while u <= suits.length() - 1 do
-        card = ranks[i] + ' ' + suits[u]
+        card = PlayingCard.new(ranks[i], suits[u])
         default_deck.push(card)
         u = u + 1
       end
     i  = i + 1
     end
 
+    @deck ||= default_deck
   end
 
   def deck()

@@ -5,15 +5,18 @@ require('card_deck')
 describe('Player') do
   describe('#has_cards?') do
     it('player has cards') do
-      test_player = Player.new("6 Spades")
+      test_card = PlayingCard.new('J','Spades')
+      test_player = Player.new([test_card])
       expect(test_player.has_cards?()).to(eq(true))
     end
   end
 
   describe('#play_card') do
     it('player plays top card from deck/(last element in array)') do
-      test_player = Player.new(["6 Spades", "8 Hearts"])
-      expect(test_player.play_card()).to(eq("8 Hearts"))
+      test_card0 = PlayingCard.new('J','Spades')
+      test_card1 = PlayingCard.new('5','Hearts')
+      test_player = Player.new([test_card0, test_card1])
+      expect(test_player.play_card()).to(eq(test_card1))
     end
 
     it('removes the played card from players deck') do
