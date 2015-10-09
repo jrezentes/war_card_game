@@ -82,6 +82,17 @@ describe('War') do
       test_game.play_hand()
       expect(test_game.play_hand()).to(eq("Everyone Loses!"))
     end
+
+    it('When there are multiple ties, and both players run out of cards the game ends') do
+      test_card0 = PlayingCard.new('A','Spades')
+      test_card1 = PlayingCard.new('A','Hearts')
+      test_player = Player.new([test_card0])
+      test_player2 = Player.new([test_card1])
+      test_game = War.new(test_player, test_player2)
+      test_game.play_hand()
+      expect(test_game.play_hand()).to(eq("Everyone Loses!"))
+    end
+
   end
 
 end

@@ -22,9 +22,9 @@ describe('CardDeck') do
   end
 
   describe('#deal') do
-    ('it deals out to two players') do
-      player1 = Player.new()
-      player2 = Player.new()
+    it('it deals out to two players') do
+      player1 = Player.new([])
+      player2 = Player.new([])
       test_deck = CardDeck.new()
       number_of_players = [player1, player2].length()
       test_deck.deal(number_of_players)

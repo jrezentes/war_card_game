@@ -1,21 +1,21 @@
 class Player
   def initialize(deck)
-     @deck = deck
+     @cards = deck
   end
 
   def has_cards?()
-    @deck.empty?() == false
+    @cards.empty?() == false
   end
 
-  def cards()
-    @deck
+  def card()
+    @cards
   end
 
   def play_card()
-    @deck.pop()
+    @cards.pop()
   end
 
   def take_cards(card)
-    @deck.push(card)
+    @cards.push(card)
   end
 end

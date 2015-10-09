@@ -38,13 +38,13 @@ class War
 
   def game_over()
     if @player1.cards() == 0
-      "Game Over! Player 2 Wins!"
+      true
     elsif @player2.cards() == 0
-      "Game Over! Player 1 Wins!"
+      true
     elsif @player1.cards() == 0 && @player2.cards() == 0
-      "Game Over!"
+      true
     else
-
+      false
     end
   end
 

@@ -44,5 +44,6 @@ class CardDeck
     player_array.each() do |player|
       player.compact()
     end
+    player_array
   end
 end
