@@ -1,49 +1,36 @@
 class CardDeck
 
+  attr_reader(:cards)
 
-  def initialize()
+  def initialize(type: "52 card deck")
 
     ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
     suits = ['Spade', 'Heart', 'Club', 'Diamond']
-    default_deck = []
-
-    i = 0
-    while (i <= ranks.length() - 1) do
-      u = 0
-      while u <= suits.length() - 1 do
-        card = PlayingCard.new(ranks[i], suits[u])
-        default_deck.push(card)
-        u = u + 1
+    @cards = []
+    if type == "52 card deck"
+      ranks.each() do |rank|
+        suits.each() do |suit|
+           card = PlayingCard.new(rank: rank, suit: suit)
+           @cards.push(card)
+        end
       end
-    i  = i + 1
     end
-
-    @deck ||= default_deck
-  end
-
-  def deck()
-    @deck
   end
 
   def shuffle()
-    @deck.shuffle!()
+    @cards.shuffle!()
   end
 
-  def deal(number_of_players)
+  def deal(player1: , player2:)
 
-    player_array = Array.new(number_of_players)
-    player_array.each {|player| player = Array.new(1)}
+    game_deck = @cards.shuffle()
+    player1_deck = player1.hand()
+    player2_deck = player2.hand()
 
-    @deck.each() do |card|
-      player_array.each() do |player|
-        player.push(card)
-        @deck.pop(card)
-      end
+    until game_deck.length == 0
+      player1_deck.push(game_deck.pop())
+      player2_deck.push(game_deck.pop())
     end
-
-    player_array.each() do |player|
-      player.compact()
-    end
-    player_array
   end
+
 end

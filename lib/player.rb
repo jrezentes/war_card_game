@@ -1,5 +1,5 @@
 class Player
-  def initialize(deck)
+  def initialize(deck:)
      @cards = deck
   end
 
@@ -7,7 +7,7 @@ class Player
     @cards.empty?() == false
   end
 
-  def card()
+  def hand()
     @cards
   end
 
@@ -15,7 +15,13 @@ class Player
     @cards.pop()
   end
 
-  def take_cards(card)
-    @cards.push(card)
+  def take_cards(cards_on_table)
+    cards_on_table.each() do |card|
+      @cards.push(card)
+    end
   end
+
+  def win_round()
+  end
+
 end
